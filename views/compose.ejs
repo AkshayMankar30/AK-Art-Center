@@ -1,0 +1,19 @@
+<%- include('partials/header') -%>
+<div class="container-fluid">
+    
+<h1>Compose</h1>
+<form action="/compose" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Artist name</label>
+        <input class="form-control" type="text" name="artistName" placeholder="Artist Name here">
+        <label>Select Art</label>
+        <input class="form-control" type="file" name="image"  id="">
+        <label>Description</label>
+        <textarea class="form-control" name="description" cols="30" rows="5"></textarea>
+    </div>
+    <button class="btn btn-primary " type="submit" name="submit">Publish</button>
+
+</form>
+
+</div>
+<%- include('partials/footer') -%>

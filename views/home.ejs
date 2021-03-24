@@ -1,0 +1,89 @@
+<%- include('partials/header') -%>
+
+<!-- nav-bar start -->
+    <nav class="navbar  navbar-expand-lg navbar-dark bg-light" >
+        <a class="navbar-brand" href="/"><img style="height: 120px; background-color: #F9FAFB;" src="image/AK art center.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- subscribe section -->
+<section id="subscribe" class="text-center">
+    <form action="/" method="post">
+        <h5>Subscribe to our Abstract Art Center</h5>
+        <input type="email" name="email" class="emailInput form-control-lg" placeholder="Your email address...">
+        <button type="submit" class=" btn-lg text-light">Subscribe now</button>
+    </form>
+</section>
+<!-- <div class="container-fluid">
+
+    <img src="image/AK art center.png" alt="">
+</div> -->
+<!-- gallery part start -->
+<div class="container-fluid">
+    <div class="title text-center">Latest Post</div>
+
+    <div class="gallery">
+        <div class="row ml-1">
+            <h6>Akshay mankar</h6>
+            <div class=" social ml-auto pr-4">
+                <a class="social-link" href=""><i class="fab fa-instagram"></i></a>
+                <a class="social-link" href=""><i class="fab fa-facebook-square"></i></a>
+            </div>
+        </div>
+        <a target="_blank" href="image/1.jpg">
+            <img src="image/1.jpg" alt="Cinque Terre" width="600" height="400">
+        </a>
+        <div class="desc ">
+            <a class="like-btn text-primary" id="l-1"><i class="far fa-heart like " style="color: red;"></i><i
+                    class="fas fa-heart  d-none text-danger liked"></i> Like</a>
+            <a class="comment-btn text-primary" id="c-1"><i class="far fa-comment comment" style="color: red;"></i><i
+                    class="fas fa-comment d-none text-danger commented"></i> Comment</a>
+            <a><i class="fas fa-share-alt text-primary"></i></a>
+        </div>
+    </div>
+    <% var i =2 %> 
+    <% postsEJS.forEach(function(post){ %>
+        
+        <div class="gallery">
+        <div class="row ml-1">
+            <h6><%= post.artistName %> </h6>
+            <div class=" social ml-auto pr-4">
+                <a class="social-link" href=""><i class="fab fa-instagram"></i></a>
+                <a class="social-link" href=""><i class="fab fa-facebook-square"></i></a>
+            </div>
+        </div>
+        <a target="_blank" href="<%= post.artImg %> ">
+            <img src="data:image/<%=post.img.contentType%>;base64,
+                     <%=post.img.data.toString('base64')%>" alt="Forest" width="600" height="400">
+        </a>
+        <p><%= post.description %> </p>
+        <div class="desc">
+            <a class="like-btn text-primary" id="ab<%=i%>"><i class="far fa-heart like " style="color: red;"></i><i
+                    class="fas fa-heart  d-none text-danger liked"></i> Like</a>
+            <a class="comment-btn text-primary" id="ab<%=i%>"><i class="far fa-comment comment" style="color: red;"></i><i
+                    class="fas fa-comment d-none text-danger commented"></i> Comment</a>
+            <a><i class="fas fa-share-alt text-primary"></i></a>
+        </div>
+    </div>
+        <% i++ %> 
+ <% }) %> 
+    <div  class="form-control my-3 text-center"><a href="/compose">Add New Post</a></div>
+</div>
+
+<%- include('partials/footer')  -%> 
